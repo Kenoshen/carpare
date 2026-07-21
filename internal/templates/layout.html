@@ -1,0 +1,24 @@
+{{define "layout"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carpare</title>
+  <link rel="stylesheet" href="/static/pico.min.css">
+  <script src="/static/htmx.min.js"></script>
+  <script src="/static/hyperscript.min.js"></script>
+</head>
+<body>
+  <header class="container">
+    <hgroup>
+      <h1>Carpare</h1>
+      <p>Figure out which car you actually want.</p>
+    </hgroup>
+  </header>
+  <main id="content" class="container">
+    {{template "content" .}}
+  </main>
+</body>
+</html>
+{{end}}
