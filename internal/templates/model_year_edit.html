@@ -39,6 +39,10 @@
     <input type="number" step="0.01" name="min_price" placeholder="Min Price" value="{{.MinPrice}}">
     <input type="number" step="0.01" name="max_price" placeholder="Max Price" value="{{.MaxPrice}}">
   </div>
+  <div class="grid">
+    <input type="number" name="engine_cylinders" placeholder="Engine Cylinders" value="{{.EngineCylinders}}">
+    <input type="number" step="0.1" name="engine_liters" placeholder="Engine Liters" value="{{.EngineLiters}}">
+  </div>
   <input type="url" name="image_url" placeholder="Image URL" value="{{.ImageURL}}">
   {{if .ImageURL}}<img src="{{.ImageURL}}" alt="{{.Label}}" class="thumb-preview">{{end}}
   <textarea name="notes" placeholder="Notes" rows="3">{{.Notes}}</textarea>

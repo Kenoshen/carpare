@@ -44,6 +44,8 @@ type ModelYear struct {
 	Rating          int       `json:"rating,omitempty"` // 1-5 stars
 	MinPrice        float64   `json:"min_price,omitempty"`
 	MaxPrice        float64   `json:"max_price,omitempty"`
+	EngineCylinders int       `json:"engine_cylinders,omitempty"`
+	EngineLiters    float64   `json:"engine_liters,omitempty"`
 	DriveType       DriveType `json:"drive_type,omitempty"`
 	FuelType        FuelType  `json:"fuel_type,omitempty"`
 	SeatingCapacity int       `json:"seating_capacity,omitempty"`

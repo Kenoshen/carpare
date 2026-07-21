@@ -128,6 +128,8 @@ func modelYearFromForm(r *http.Request, id string) (models.ModelYear, error) {
 	rating, _ := strconv.Atoi(r.FormValue("rating"))
 	minPrice, _ := strconv.ParseFloat(r.FormValue("min_price"), 64)
 	maxPrice, _ := strconv.ParseFloat(r.FormValue("max_price"), 64)
+	engineCylinders, _ := strconv.Atoi(r.FormValue("engine_cylinders"))
+	engineLiters, _ := strconv.ParseFloat(r.FormValue("engine_liters"), 64)
 	seating, _ := strconv.Atoi(r.FormValue("seating_capacity"))
 
 	return models.ModelYear{
@@ -138,6 +140,8 @@ func modelYearFromForm(r *http.Request, id string) (models.ModelYear, error) {
 		Rating:          rating,
 		MinPrice:        minPrice,
 		MaxPrice:        maxPrice,
+		EngineCylinders: engineCylinders,
+		EngineLiters:    engineLiters,
 		DriveType:       models.DriveType(r.FormValue("drive_type")),
 		FuelType:        models.FuelType(r.FormValue("fuel_type")),
 		SeatingCapacity: seating,

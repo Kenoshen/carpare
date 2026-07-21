@@ -1,0 +1,15 @@
+{
+  "id": "d90d87a0e5f1a0d4ea3e7978",
+  "car_model_id": "f5aaf0b6ec1c1381a253e7e5",
+  "year": 2017,
+  "average_mpg": 27,
+  "rating": 4,
+  "min_price": 14000,
+  "max_price": 16000,
+  "engine_cylinders": 4,
+  "engine_liters": 2.4,
+  "drive_type": "awd",
+  "fuel_type": "gas",
+  "seating_capacity": 5,
+  "image_url": "https://file.kelleybluebookimages.com/kbb/base/evox/CP/11813/2017-Honda-CR-V-front_11813_032_1849x875_GB_cropped.png?downsize=750:*"
+}

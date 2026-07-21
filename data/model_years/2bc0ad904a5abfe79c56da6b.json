@@ -1,0 +1,15 @@
+{
+  "id": "2bc0ad904a5abfe79c56da6b",
+  "car_model_id": "f5aaf0b6ec1c1381a253e7e5",
+  "year": 2019,
+  "average_mpg": 27,
+  "rating": 4,
+  "min_price": 17000,
+  "max_price": 20000,
+  "engine_cylinders": 4,
+  "engine_liters": 2.4,
+  "drive_type": "awd",
+  "fuel_type": "gas",
+  "seating_capacity": 5,
+  "image_url": "https://file.kelleybluebookimages.com/kbb/base/evox/CP/11795/2019-Honda-CR-V-front_11795_032_1847x864_RD_cropped.png?downsize=750:*"
+}
