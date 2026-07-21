@@ -1,7 +1,9 @@
 package handlers
 
 import (
+	"cmp"
 	"net/http"
+	"slices"
 
 	"carpare/internal/db"
 	"carpare/internal/models"
@@ -34,7 +36,7 @@ func (h *Handlers) CreateCarModel(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	h.renderFragment(w, "car_models.html", "car_model_row", cm)
+	h.renderSortedCarModelRows(w)
 }
 
 func (h *Handlers) ViewCarModel(w http.ResponseWriter, r *http.Request) {
@@ -70,7 +72,7 @@ func (h *Handlers) UpdateCarModel(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	h.renderFragment(w, "car_models.html", "car_model_row", cm)
+	h.renderSortedCarModelRows(w)
 }
 
 func (h *Handlers) DeleteCarModel(w http.ResponseWriter, r *http.Request) {
@@ -80,11 +82,30 @@ func (h *Handlers) DeleteCarModel(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func (h *Handlers) renderSortedCarModelRows(w http.ResponseWriter) {
+	carModels, err := h.allCarModels()
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	h.renderFragment(w, "car_models.html", "car_model_rows", carModels)
+}
+
+// allCarModels returns every CarModel, sorted by make then model.
 func (h *Handlers) allCarModels() ([]models.CarModel, error) {
 	var out []models.CarModel
 	err := db.All(h.store, collCarModels, func(id string, doc models.CarModel) error {
 		out = append(out, doc)
 		return nil
 	})
-	return out, err
+	if err != nil {
+		return nil, err
+	}
+	slices.SortFunc(out, func(a, b models.CarModel) int {
+		if c := cmp.Compare(a.Make, b.Make); c != 0 {
+			return c
+		}
+		return cmp.Compare(a.Model, b.Model)
+	})
+	return out, nil
 }

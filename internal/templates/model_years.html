@@ -7,7 +7,7 @@
 {{if not .CarModels}}
 <p><em>Add a <a href="/car-models">car model</a> first.</em></p>
 {{else}}
-<form hx-post="/model-years" hx-target="#model-year-rows" hx-swap="afterbegin" hx-on::after-request="this.reset()">
+<form hx-post="/model-years" hx-target="#model-year-rows" hx-swap="innerHTML" hx-on::after-request="this.reset()">
   <div class="grid">
     <select name="car_model_id" required>
       <option value="" disabled selected>Car Model</option>
@@ -51,10 +51,12 @@
     <tr><th>Image</th><th>Year</th><th>Model</th><th>MPG (city/hwy)</th><th>Safety</th><th>Reliability</th><th>HP</th><th></th></tr>
   </thead>
   <tbody id="model-year-rows">
-    {{range .ModelYears}}{{template "model_year_row" .}}{{end}}
+    {{template "model_year_rows" .ModelYears}}
   </tbody>
 </table>
 {{end}}
+
+{{define "model_year_rows"}}{{range .}}{{template "model_year_row" .}}{{end}}{{end}}
 
 {{define "model_year_row"}}
 <tr id="model-year-{{.ID}}" class="flash" _="on load transition my background-color from #2d6cdf33 to transparent over 1s">

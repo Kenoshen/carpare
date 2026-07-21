@@ -1,7 +1,9 @@
 package handlers
 
 import (
+	"cmp"
 	"net/http"
+	"slices"
 	"strconv"
 
 	"carpare/internal/db"
@@ -54,12 +56,7 @@ func (h *Handlers) CreateModelYear(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	view, err := h.modelYearView(my)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-	h.renderFragment(w, "model_years.html", "model_year_row", view)
+	h.renderSortedModelYearRows(w)
 }
 
 func (h *Handlers) EditModelYear(w http.ResponseWriter, r *http.Request) {
@@ -108,6 +105,20 @@ func (h *Handlers) DeleteModelYear(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func (h *Handlers) renderSortedModelYearRows(w http.ResponseWriter) {
+	carModels, err := h.allCarModels()
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	modelYears, err := h.allModelYearViews(carModels)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	h.renderFragment(w, "model_years.html", "model_year_rows", modelYears)
+}
+
 func modelYearFromForm(r *http.Request, id string) (models.ModelYear, error) {
 	year, err := strconv.Atoi(r.FormValue("year"))
 	if err != nil {
@@ -139,15 +150,8 @@ func modelYearFromForm(r *http.Request, id string) (models.ModelYear, error) {
 	}, nil
 }
 
-// modelYearView loads the ModelYear's nameplate for display. If the
-// nameplate has been deleted, it renders with a blank Make/Model rather
-// than failing.
-func (h *Handlers) modelYearView(my models.ModelYear) (modelYearView, error) {
-	var cm models.CarModel
-	_ = h.store.Get(collCarModels, my.CarModelID, &cm)
-	return modelYearView{ModelYear: my, Make: cm.Make, Model: cm.Model}, nil
-}
-
+// allModelYearViews returns every ModelYear paired with its nameplate,
+// sorted by make, then model, then year.
 func (h *Handlers) allModelYearViews(carModels []models.CarModel) ([]modelYearView, error) {
 	byID := make(map[string]models.CarModel, len(carModels))
 	for _, cm := range carModels {
@@ -159,5 +163,17 @@ func (h *Handlers) allModelYearViews(carModels []models.CarModel) ([]modelYearVi
 		out = append(out, modelYearView{ModelYear: doc, Make: cm.Make, Model: cm.Model})
 		return nil
 	})
-	return out, err
+	if err != nil {
+		return nil, err
+	}
+	slices.SortFunc(out, func(a, b modelYearView) int {
+		if c := cmp.Compare(a.Make, b.Make); c != 0 {
+			return c
+		}
+		if c := cmp.Compare(a.Model, b.Model); c != 0 {
+			return c
+		}
+		return cmp.Compare(a.Year, b.Year)
+	})
+	return out, nil
 }

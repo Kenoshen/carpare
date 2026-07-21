@@ -4,7 +4,7 @@
   <p>The make/model nameplates you're comparing.</p>
 </hgroup>
 
-<form hx-post="/car-models" hx-target="#car-model-rows" hx-swap="beforeend" hx-on::after-request="this.reset()">
+<form hx-post="/car-models" hx-target="#car-model-rows" hx-swap="innerHTML" hx-on::after-request="this.reset()">
   <fieldset role="group">
     <input type="text" name="make" placeholder="Make" required>
     <input type="text" name="model" placeholder="Model" required>
@@ -17,10 +17,12 @@
     <tr><th>Make</th><th>Model</th><th></th></tr>
   </thead>
   <tbody id="car-model-rows">
-    {{range .CarModels}}{{template "car_model_row" .}}{{end}}
+    {{template "car_model_rows" .CarModels}}
   </tbody>
 </table>
 {{end}}
+
+{{define "car_model_rows"}}{{range .}}{{template "car_model_row" .}}{{end}}{{end}}
 
 {{define "car_model_row"}}
 <tr id="car-model-{{.ID}}" class="flash" _="on load transition my background-color from #2d6cdf33 to transparent over 1s">
@@ -38,7 +40,7 @@
   <td><input type="text" name="make" value="{{.Make}}" required></td>
   <td><input type="text" name="model" value="{{.Model}}" required></td>
   <td>
-    <button hx-put="/car-models/{{.ID}}" hx-include="closest tr" hx-target="#car-model-{{.ID}}" hx-swap="outerHTML">Save</button>
+    <button hx-put="/car-models/{{.ID}}" hx-include="closest tr" hx-target="#car-model-rows" hx-swap="innerHTML">Save</button>
     <button type="button" class="secondary outline" hx-get="/car-models/{{.ID}}" hx-target="#car-model-{{.ID}}" hx-swap="outerHTML">Cancel</button>
   </td>
 </tr>
