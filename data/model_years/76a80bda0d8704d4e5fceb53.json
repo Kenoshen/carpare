@@ -1,0 +1,15 @@
+{
+  "id": "76a80bda0d8704d4e5fceb53",
+  "car_model_id": "a78aef9d5976057314b201c2",
+  "year": 2020,
+  "average_mpg": 33,
+  "rating": 5,
+  "min_price": 16000,
+  "max_price": 22000,
+  "engine_cylinders": 4,
+  "engine_liters": 2,
+  "drive_type": "fwd",
+  "fuel_type": "gas",
+  "seating_capacity": 5,
+  "image_url": "https://file.kelleybluebookimages.com/kbb/base/evox/CP/12627/2020-Honda-Accord-front_12627_032_1809x732_BU_cropped.png?downsize=750:*"
+}

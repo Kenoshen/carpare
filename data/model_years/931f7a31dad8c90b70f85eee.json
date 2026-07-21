@@ -1,0 +1,15 @@
+{
+  "id": "931f7a31dad8c90b70f85eee",
+  "car_model_id": "a78aef9d5976057314b201c2",
+  "year": 2019,
+  "average_mpg": 33,
+  "rating": 4,
+  "min_price": 15000,
+  "max_price": 20000,
+  "engine_cylinders": 4,
+  "engine_liters": 2,
+  "drive_type": "fwd",
+  "fuel_type": "gas",
+  "seating_capacity": 5,
+  "image_url": "https://file.kelleybluebookimages.com/kbb/base/evox/CP/12415/2019-Honda-Accord-front_12415_032_1812x734_BS_cropped.png?downsize=750:*"
+}
