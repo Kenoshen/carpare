@@ -3,6 +3,7 @@
   "car_model_id": "3d6e159d09b49fd434db555d",
   "year": 2020,
   "average_mpg": 23,
+  "rating": 4,
   "min_price": 21500,
   "max_price": 28500,
   "engine_cylinders": 6,

@@ -1,0 +1,15 @@
+{
+  "id": "db56f992671f17e3f9ef6661",
+  "car_model_id": "27cc6da8ad863090235852e0",
+  "year": 2015,
+  "average_mpg": 21,
+  "rating": 4,
+  "min_price": 9000,
+  "max_price": 12000,
+  "engine_cylinders": 4,
+  "engine_liters": 2.7,
+  "drive_type": "fwd",
+  "fuel_type": "gas",
+  "seating_capacity": 5,
+  "image_url": "https://file.kelleybluebookimages.com/kbb/base/evox/CP/10277/2015-Toyota-Venza-front_10277_032_1858x827_070_cropped.png?downsize=750:*"
+}

@@ -3,6 +3,7 @@
   "car_model_id": "4970b988ece14ced074079e2",
   "year": 2017,
   "average_mpg": 32,
+  "rating": 4,
   "min_price": 11000,
   "max_price": 14000,
   "engine_cylinders": 4,

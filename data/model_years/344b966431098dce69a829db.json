@@ -1,0 +1,15 @@
+{
+  "id": "344b966431098dce69a829db",
+  "car_model_id": "3d6e159d09b49fd434db555d",
+  "year": 2017,
+  "average_mpg": 23,
+  "rating": 4,
+  "min_price": 16600,
+  "max_price": 20700,
+  "engine_cylinders": 6,
+  "engine_liters": 3.5,
+  "drive_type": "fwd",
+  "fuel_type": "gas",
+  "seating_capacity": 8,
+  "image_url": "https://file.kelleybluebookimages.com/kbb/base/evox/CP/11757/2017-Toyota-Highlander-front_11757_032_1823x860_218_cropped.png?downsize=750:*"
+}

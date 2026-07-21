@@ -1,0 +1,15 @@
+{
+  "id": "447b1e9e98d7a4942e74e1f5",
+  "car_model_id": "27cc6da8ad863090235852e0",
+  "year": 2024,
+  "average_mpg": 39,
+  "rating": 4,
+  "min_price": 29000,
+  "max_price": 36000,
+  "engine_cylinders": 4,
+  "engine_liters": 2.5,
+  "drive_type": "awd",
+  "fuel_type": "hybrid",
+  "seating_capacity": 5,
+  "image_url": "https://file.kelleybluebookimages.com/kbb/base/evox/CP/53859/2024-Toyota-Venza-front_53859_032_1817x859_8X8_cropped.png?downsize=750:*"
+}
