@@ -134,6 +134,7 @@ func modelYearFromForm(r *http.Request, id string) (models.ModelYear, error) {
 		FuelType:          models.FuelType(r.FormValue("fuel_type")),
 		SeatingCapacity:   seating,
 		CargoCubicFeet:    cargo,
+		ImageURL:          r.FormValue("image_url"),
 		Notes:             r.FormValue("notes"),
 	}, nil
 }

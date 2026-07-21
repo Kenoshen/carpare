@@ -39,6 +39,8 @@
     </select>
   </div>
   <input type="url" name="listing_url" placeholder="Listing URL" value="{{.ListingURL}}">
+  <input type="url" name="image_url" placeholder="Image URL" value="{{.ImageURL}}">
+  {{if .ImageURL}}<img src="{{.ImageURL}}" alt="{{.Label}}" class="thumb-preview">{{end}}
   <label>Pros (one per line)<textarea name="pros" rows="3">{{.ProsText}}</textarea></label>
   <label>Cons (one per line)<textarea name="cons" rows="3">{{.ConsText}}</textarea></label>
   <label>Notes<textarea name="notes" rows="3">{{.Notes}}</textarea></label>

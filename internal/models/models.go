@@ -49,6 +49,7 @@ type ModelYear struct {
 	FuelType          FuelType  `json:"fuel_type,omitempty"`
 	SeatingCapacity   int       `json:"seating_capacity,omitempty"`
 	CargoCubicFeet    float64   `json:"cargo_cubic_feet,omitempty"`
+	ImageURL          string    `json:"image_url,omitempty"`
 	Notes             string    `json:"notes,omitempty"`
 }
 
@@ -98,6 +99,7 @@ type Listing struct {
 	SellerType SellerType `json:"seller_type,omitempty"`
 	Location   string     `json:"location,omitempty"`
 	ListingURL string     `json:"listing_url,omitempty"`
+	ImageURL   string     `json:"image_url,omitempty"`
 
 	Status Status   `json:"status"`
 	Pros   []string `json:"pros,omitempty"`

@@ -38,6 +38,9 @@
     <input type="number" name="horsepower" placeholder="Horsepower">
     <input type="number" name="seating_capacity" placeholder="Seats">
     <input type="number" step="0.1" name="cargo_cubic_feet" placeholder="Cargo (cu ft)">
+  </div>
+  <div class="grid">
+    <input type="url" name="image_url" placeholder="Image URL">
     <button type="submit">Add</button>
   </div>
 </form>
@@ -45,7 +48,7 @@
 
 <table>
   <thead>
-    <tr><th>Year</th><th>Model</th><th>MPG (city/hwy)</th><th>Safety</th><th>Reliability</th><th>HP</th><th></th></tr>
+    <tr><th>Image</th><th>Year</th><th>Model</th><th>MPG (city/hwy)</th><th>Safety</th><th>Reliability</th><th>HP</th><th></th></tr>
   </thead>
   <tbody id="model-year-rows">
     {{range .ModelYears}}{{template "model_year_row" .}}{{end}}
@@ -55,6 +58,7 @@
 
 {{define "model_year_row"}}
 <tr id="model-year-{{.ID}}" class="flash" _="on load transition my background-color from #2d6cdf33 to transparent over 1s">
+  <td>{{if .ImageURL}}<img src="{{.ImageURL}}" alt="{{.Year}} {{.Make}} {{.Model}}" class="thumb">{{end}}</td>
   <td>{{.Year}}</td>
   <td>{{.Make}} {{.Model}}</td>
   <td>{{.MPGCity}}/{{.MPGHighway}}</td>

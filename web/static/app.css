@@ -1,0 +1,16 @@
+.thumb {
+  width: 60px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.thumb-preview {
+  max-width: 240px;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 1rem;
+}

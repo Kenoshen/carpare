@@ -32,6 +32,7 @@
   </div>
   <div class="grid">
     <input type="url" name="listing_url" placeholder="Listing URL">
+    <input type="url" name="image_url" placeholder="Image URL">
     <button type="submit">Add</button>
   </div>
 </form>
@@ -39,7 +40,7 @@
 
 <table>
   <thead>
-    <tr><th>Vehicle</th><th>Trim</th><th>Price</th><th>Mileage</th><th>Status</th><th></th></tr>
+    <tr><th>Image</th><th>Vehicle</th><th>Trim</th><th>Price</th><th>Mileage</th><th>Status</th><th></th></tr>
   </thead>
   <tbody id="listing-rows">
     {{range .Listings}}{{template "listing_row" .}}{{end}}
@@ -49,6 +50,7 @@
 
 {{define "listing_row"}}
 <tr id="listing-{{.ID}}" class="flash" _="on load transition my background-color from #2d6cdf33 to transparent over 1s">
+  <td>{{if .ImageURL}}<img src="{{.ImageURL}}" alt="{{.Label}}" class="thumb">{{end}}</td>
   <td>{{.Label}}</td>
   <td>{{.Trim}}</td>
   <td>${{printf "%.2f" .Price}}</td>
