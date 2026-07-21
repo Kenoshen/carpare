@@ -1,0 +1,15 @@
+{
+  "id": "1fd78febfa13f19a4ee1510c",
+  "car_model_id": "4099ab0eb796eda8bfaad60c",
+  "year": 2017,
+  "average_mpg": 27,
+  "rating": 4,
+  "min_price": 13000,
+  "max_price": 15000,
+  "engine_cylinders": 4,
+  "engine_liters": 2.5,
+  "drive_type": "fwd",
+  "fuel_type": "gas",
+  "seating_capacity": 5,
+  "image_url": "https://file.kelleybluebookimages.com/kbb/base/evox/CP/10768/2017-Toyota-Camry-front_10768_032_1832x751_5B2_cropped.png?downsize=750:*"
+}

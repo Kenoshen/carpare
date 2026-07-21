@@ -1,0 +1,15 @@
+{
+  "id": "537461b191827e8712528651",
+  "car_model_id": "f4b2f5cfb52f789825ad8061",
+  "year": 2017,
+  "average_mpg": 24,
+  "rating": 4,
+  "min_price": 15000,
+  "max_price": 18000,
+  "engine_cylinders": 4,
+  "engine_liters": 2.5,
+  "drive_type": "awd",
+  "fuel_type": "gas",
+  "seating_capacity": 5,
+  "image_url": "https://file.kelleybluebookimages.com/kbb/base/evox/CP/11669/2017-Toyota-RAV4-front_11669_032_1827x904_040_cropped.png?downsize=750:*"
+}

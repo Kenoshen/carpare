@@ -1,0 +1,14 @@
+{
+  "id": "5fc4cef93b5c48534a3db88a",
+  "car_model_id": "3d6e159d09b49fd434db555d",
+  "year": 2020,
+  "average_mpg": 23,
+  "min_price": 21500,
+  "max_price": 28500,
+  "engine_cylinders": 6,
+  "engine_liters": 3.5,
+  "drive_type": "awd",
+  "fuel_type": "gas",
+  "seating_capacity": 8,
+  "image_url": "https://file.kelleybluebookimages.com/kbb/base/evox/CP/14252/2020-Toyota-Highlander-front_14252_032_1860x842_1K5_cropped.png?downsize=750:*"
+}

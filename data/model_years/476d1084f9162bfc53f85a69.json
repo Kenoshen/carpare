@@ -1,0 +1,14 @@
+{
+  "id": "476d1084f9162bfc53f85a69",
+  "car_model_id": "4970b988ece14ced074079e2",
+  "year": 2017,
+  "average_mpg": 32,
+  "min_price": 11000,
+  "max_price": 14000,
+  "engine_cylinders": 4,
+  "engine_liters": 1.8,
+  "drive_type": "fwd",
+  "fuel_type": "gas",
+  "seating_capacity": 5,
+  "image_url": "https://file.kelleybluebookimages.com/kbb/base/evox/CP/11595/2017-Toyota-Corolla-front_11595_032_1817x786_040_cropped.png?downsize=750:*"
+}
