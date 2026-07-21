@@ -1,0 +1,42 @@
+{{define "content"}}
+<hgroup>
+  <h2>Edit Model Year</h2>
+  <p>{{.Label}}</p>
+</hgroup>
+
+<form method="post" action="/model-years/{{.ID}}">
+  <div class="grid">
+    <select name="car_model_id" required>
+      {{range .CarModels}}<option value="{{.ID}}" {{if eq .ID $.CarModelID}}selected{{end}}>{{.Make}} {{.Model}}</option>{{end}}
+    </select>
+    <input type="number" name="year" value="{{.Year}}" required>
+    <select name="fuel_type">
+      <option value="gas" {{if eq .FuelType "gas"}}selected{{end}}>Gas</option>
+      <option value="hybrid" {{if eq .FuelType "hybrid"}}selected{{end}}>Hybrid</option>
+      <option value="phev" {{if eq .FuelType "phev"}}selected{{end}}>Plug-in Hybrid</option>
+      <option value="electric" {{if eq .FuelType "electric"}}selected{{end}}>Electric</option>
+      <option value="diesel" {{if eq .FuelType "diesel"}}selected{{end}}>Diesel</option>
+    </select>
+    <select name="drive_type">
+      <option value="fwd" {{if eq .DriveType "fwd"}}selected{{end}}>FWD</option>
+      <option value="awd" {{if eq .DriveType "awd"}}selected{{end}}>AWD</option>
+      <option value="rwd" {{if eq .DriveType "rwd"}}selected{{end}}>RWD</option>
+      <option value="4wd" {{if eq .DriveType "4wd"}}selected{{end}}>4WD</option>
+    </select>
+  </div>
+  <div class="grid">
+    <input type="number" step="0.1" name="mpg_city" placeholder="MPG City" value="{{.MPGCity}}">
+    <input type="number" step="0.1" name="mpg_highway" placeholder="MPG Highway" value="{{.MPGHighway}}">
+    <input type="number" step="0.1" name="safety_rating" placeholder="Safety Rating" value="{{.SafetyRating}}">
+    <input type="number" step="0.1" name="reliability_rating" placeholder="Reliability Rating" value="{{.ReliabilityRating}}">
+  </div>
+  <div class="grid">
+    <input type="number" name="horsepower" placeholder="Horsepower" value="{{.Horsepower}}">
+    <input type="number" name="seating_capacity" placeholder="Seats" value="{{.SeatingCapacity}}">
+    <input type="number" step="0.1" name="cargo_cubic_feet" placeholder="Cargo (cu ft)" value="{{.CargoCubicFeet}}">
+  </div>
+  <textarea name="notes" placeholder="Notes" rows="3">{{.Notes}}</textarea>
+  <button type="submit">Save</button>
+  <a href="/model-years" role="button" class="secondary outline">Cancel</a>
+</form>
+{{end}}

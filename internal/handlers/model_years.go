@@ -22,6 +22,7 @@ type modelYearsPageData struct {
 
 type modelYearEditPageData struct {
 	models.ModelYear
+	Label     string
 	CarModels []models.CarModel
 }
 
@@ -72,7 +73,14 @@ func (h *Handlers) EditModelYear(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	h.render(w, "model_year_edit.html", modelYearEditPageData{ModelYear: my, CarModels: carModels})
+	label := strconv.Itoa(my.Year)
+	for _, cm := range carModels {
+		if cm.ID == my.CarModelID {
+			label = strconv.Itoa(my.Year) + " " + cm.Make + " " + cm.Model
+			break
+		}
+	}
+	h.render(w, "model_year_edit.html", modelYearEditPageData{ModelYear: my, Label: label, CarModels: carModels})
 }
 
 func (h *Handlers) UpdateModelYear(w http.ResponseWriter, r *http.Request) {

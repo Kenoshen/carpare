@@ -1,0 +1,69 @@
+{{define "content"}}
+<hgroup>
+  <h2>Model Years</h2>
+  <p>Year-specific specs and ratings for each nameplate.</p>
+</hgroup>
+
+{{if not .CarModels}}
+<p><em>Add a <a href="/car-models">car model</a> first.</em></p>
+{{else}}
+<form hx-post="/model-years" hx-target="#model-year-rows" hx-swap="afterbegin" hx-on::after-request="this.reset()">
+  <div class="grid">
+    <select name="car_model_id" required>
+      <option value="" disabled selected>Car Model</option>
+      {{range .CarModels}}<option value="{{.ID}}">{{.Make}} {{.Model}}</option>{{end}}
+    </select>
+    <input type="number" name="year" placeholder="Year" required>
+    <select name="fuel_type">
+      <option value="gas">Gas</option>
+      <option value="hybrid">Hybrid</option>
+      <option value="phev">Plug-in Hybrid</option>
+      <option value="electric">Electric</option>
+      <option value="diesel">Diesel</option>
+    </select>
+    <select name="drive_type">
+      <option value="fwd">FWD</option>
+      <option value="awd">AWD</option>
+      <option value="rwd">RWD</option>
+      <option value="4wd">4WD</option>
+    </select>
+  </div>
+  <div class="grid">
+    <input type="number" step="0.1" name="mpg_city" placeholder="MPG City">
+    <input type="number" step="0.1" name="mpg_highway" placeholder="MPG Highway">
+    <input type="number" step="0.1" name="safety_rating" placeholder="Safety Rating">
+    <input type="number" step="0.1" name="reliability_rating" placeholder="Reliability Rating">
+  </div>
+  <div class="grid">
+    <input type="number" name="horsepower" placeholder="Horsepower">
+    <input type="number" name="seating_capacity" placeholder="Seats">
+    <input type="number" step="0.1" name="cargo_cubic_feet" placeholder="Cargo (cu ft)">
+    <button type="submit">Add</button>
+  </div>
+</form>
+{{end}}
+
+<table>
+  <thead>
+    <tr><th>Year</th><th>Model</th><th>MPG (city/hwy)</th><th>Safety</th><th>Reliability</th><th>HP</th><th></th></tr>
+  </thead>
+  <tbody id="model-year-rows">
+    {{range .ModelYears}}{{template "model_year_row" .}}{{end}}
+  </tbody>
+</table>
+{{end}}
+
+{{define "model_year_row"}}
+<tr id="model-year-{{.ID}}" class="flash" _="on load transition my background-color from #2d6cdf33 to transparent over 1s">
+  <td>{{.Year}}</td>
+  <td>{{.Make}} {{.Model}}</td>
+  <td>{{.MPGCity}}/{{.MPGHighway}}</td>
+  <td>{{.SafetyRating}}</td>
+  <td>{{.ReliabilityRating}}</td>
+  <td>{{.Horsepower}}</td>
+  <td>
+    <a href="/model-years/{{.ID}}/edit" role="button" class="secondary outline">Edit</a>
+    <button class="contrast outline" hx-delete="/model-years/{{.ID}}" hx-target="closest tr" hx-swap="outerHTML" hx-confirm="Delete this model year?">Delete</button>
+  </td>
+</tr>
+{{end}}
