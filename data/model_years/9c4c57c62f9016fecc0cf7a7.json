@@ -1,0 +1,15 @@
+{
+  "id": "9c4c57c62f9016fecc0cf7a7",
+  "car_model_id": "8f8bd85b35824c630b6ce0ec",
+  "year": 2020,
+  "average_mpg": 30,
+  "rating": 5,
+  "min_price": 15000,
+  "max_price": 19000,
+  "engine_cylinders": 4,
+  "engine_liters": 2,
+  "drive_type": "fwd",
+  "fuel_type": "gas",
+  "seating_capacity": 5,
+  "image_url": "https://file.kelleybluebookimages.com/kbb/base/evox/ExtSpP/13226/2020-Honda-Civic-360SpinFrame_13226_032_2400x1800_nologo.png?downsize=750:*"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "d67fd0ba9227ac5232fa1cc5",
+  "car_model_id": "8f957078bc7270ec1ba59594",
+  "year": 2020,
+  "average_mpg": 21,
+  "rating": 3,
+  "min_price": 17000,
+  "max_price": 23000,
+  "engine_cylinders": 6,
+  "engine_liters": 3.5,
+  "drive_type": "awd",
+  "fuel_type": "gas",
+  "seating_capacity": 8,
+  "image_url": "https://file.kelleybluebookimages.com/kbb/base/evox/CP/13224/2020-Honda-Pilot-front_13224_032_1841x873_GY_cropped.png?downsize=750:*"
+}

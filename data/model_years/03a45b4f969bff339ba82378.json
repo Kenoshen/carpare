@@ -1,0 +1,15 @@
+{
+  "id": "03a45b4f969bff339ba82378",
+  "car_model_id": "8f957078bc7270ec1ba59594",
+  "year": 2017,
+  "average_mpg": 21,
+  "rating": 3,
+  "min_price": 13000,
+  "max_price": 16000,
+  "engine_cylinders": 6,
+  "engine_liters": 3.5,
+  "drive_type": "fwd",
+  "fuel_type": "gas",
+  "seating_capacity": 8,
+  "image_url": "https://file.kelleybluebookimages.com/kbb/base/evox/CP/10539/2017-Honda-Pilot-front_10539_032_1844x868_BS_cropped.png?downsize=750:*"
+}
