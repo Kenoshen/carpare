@@ -29,26 +29,29 @@
     </select>
   </div>
   <div class="grid">
-    <input type="number" step="0.1" name="mpg_city" placeholder="MPG City">
-    <input type="number" step="0.1" name="mpg_highway" placeholder="MPG Highway">
-    <input type="number" step="0.1" name="safety_rating" placeholder="Safety Rating">
-    <input type="number" step="0.1" name="reliability_rating" placeholder="Reliability Rating">
-  </div>
-  <div class="grid">
-    <input type="number" name="horsepower" placeholder="Horsepower">
+    <input type="number" step="0.1" name="average_mpg" placeholder="Average MPG">
     <input type="number" name="seating_capacity" placeholder="Seats">
-    <input type="number" step="0.1" name="cargo_cubic_feet" placeholder="Cargo (cu ft)">
+    <select name="rating">
+      <option value="" disabled selected>Rating</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <input type="url" name="image_url" placeholder="Image URL">
   </div>
   <div class="grid">
-    <input type="url" name="image_url" placeholder="Image URL">
-    <button type="submit">Add</button>
+    <input type="number" step="0.01" name="min_price" placeholder="Min Price">
+    <input type="number" step="0.01" name="max_price" placeholder="Max Price">
   </div>
+  <button type="submit">Add</button>
 </form>
 {{end}}
 
 <table>
   <thead>
-    <tr><th>Image</th><th>Year</th><th>Model</th><th>MPG (city/hwy)</th><th>Safety</th><th>Reliability</th><th>HP</th><th></th></tr>
+    <tr><th>Image</th><th>Year</th><th>Model</th><th>Avg MPG</th><th>Rating</th><th>Price Range</th><th></th></tr>
   </thead>
   <tbody id="model-year-rows">
     {{template "model_year_rows" .ModelYears}}
@@ -63,10 +66,9 @@
   <td>{{if .ImageURL}}<img src="{{.ImageURL}}" alt="{{.Year}} {{.Make}} {{.Model}}" class="thumb">{{end}}</td>
   <td>{{.Year}}</td>
   <td>{{.Make}} {{.Model}}</td>
-  <td>{{.MPGCity}}/{{.MPGHighway}}</td>
-  <td>{{.SafetyRating}}</td>
-  <td>{{.ReliabilityRating}}</td>
-  <td>{{.Horsepower}}</td>
+  <td>{{.AverageMPG}}</td>
+  <td>{{stars .Rating}}</td>
+  <td>{{if or .MinPrice .MaxPrice}}${{printf "%.0f" .MinPrice}} - ${{printf "%.0f" .MaxPrice}}{{end}}</td>
   <td>
     <a href="/model-years/{{.ID}}/edit" role="button" class="secondary outline">Edit</a>
     <button class="contrast outline" hx-delete="/model-years/{{.ID}}" hx-target="closest tr" hx-swap="outerHTML" hx-confirm="Delete this model year?">Delete</button>

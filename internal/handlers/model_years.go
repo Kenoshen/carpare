@@ -124,29 +124,25 @@ func modelYearFromForm(r *http.Request, id string) (models.ModelYear, error) {
 	if err != nil {
 		return models.ModelYear{}, err
 	}
-	mpgCity, _ := strconv.ParseFloat(r.FormValue("mpg_city"), 64)
-	mpgHighway, _ := strconv.ParseFloat(r.FormValue("mpg_highway"), 64)
-	safety, _ := strconv.ParseFloat(r.FormValue("safety_rating"), 64)
-	reliability, _ := strconv.ParseFloat(r.FormValue("reliability_rating"), 64)
-	horsepower, _ := strconv.Atoi(r.FormValue("horsepower"))
+	avgMPG, _ := strconv.ParseFloat(r.FormValue("average_mpg"), 64)
+	rating, _ := strconv.Atoi(r.FormValue("rating"))
+	minPrice, _ := strconv.ParseFloat(r.FormValue("min_price"), 64)
+	maxPrice, _ := strconv.ParseFloat(r.FormValue("max_price"), 64)
 	seating, _ := strconv.Atoi(r.FormValue("seating_capacity"))
-	cargo, _ := strconv.ParseFloat(r.FormValue("cargo_cubic_feet"), 64)
 
 	return models.ModelYear{
-		ID:                id,
-		CarModelID:        r.FormValue("car_model_id"),
-		Year:              year,
-		MPGCity:           mpgCity,
-		MPGHighway:        mpgHighway,
-		SafetyRating:      safety,
-		ReliabilityRating: reliability,
-		Horsepower:        horsepower,
-		DriveType:         models.DriveType(r.FormValue("drive_type")),
-		FuelType:          models.FuelType(r.FormValue("fuel_type")),
-		SeatingCapacity:   seating,
-		CargoCubicFeet:    cargo,
-		ImageURL:          r.FormValue("image_url"),
-		Notes:             r.FormValue("notes"),
+		ID:              id,
+		CarModelID:      r.FormValue("car_model_id"),
+		Year:            year,
+		AverageMPG:      avgMPG,
+		Rating:          rating,
+		MinPrice:        minPrice,
+		MaxPrice:        maxPrice,
+		DriveType:       models.DriveType(r.FormValue("drive_type")),
+		FuelType:        models.FuelType(r.FormValue("fuel_type")),
+		SeatingCapacity: seating,
+		ImageURL:        r.FormValue("image_url"),
+		Notes:           r.FormValue("notes"),
 	}, nil
 }
 

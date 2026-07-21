@@ -25,15 +25,19 @@
     </select>
   </div>
   <div class="grid">
-    <input type="number" step="0.1" name="mpg_city" placeholder="MPG City" value="{{.MPGCity}}">
-    <input type="number" step="0.1" name="mpg_highway" placeholder="MPG Highway" value="{{.MPGHighway}}">
-    <input type="number" step="0.1" name="safety_rating" placeholder="Safety Rating" value="{{.SafetyRating}}">
-    <input type="number" step="0.1" name="reliability_rating" placeholder="Reliability Rating" value="{{.ReliabilityRating}}">
+    <input type="number" step="0.1" name="average_mpg" placeholder="Average MPG" value="{{.AverageMPG}}">
+    <input type="number" name="seating_capacity" placeholder="Seats" value="{{.SeatingCapacity}}">
+    <select name="rating">
+      <option value="1" {{if eq .Rating 1}}selected{{end}}>1</option>
+      <option value="2" {{if eq .Rating 2}}selected{{end}}>2</option>
+      <option value="3" {{if eq .Rating 3}}selected{{end}}>3</option>
+      <option value="4" {{if eq .Rating 4}}selected{{end}}>4</option>
+      <option value="5" {{if eq .Rating 5}}selected{{end}}>5</option>
+    </select>
   </div>
   <div class="grid">
-    <input type="number" name="horsepower" placeholder="Horsepower" value="{{.Horsepower}}">
-    <input type="number" name="seating_capacity" placeholder="Seats" value="{{.SeatingCapacity}}">
-    <input type="number" step="0.1" name="cargo_cubic_feet" placeholder="Cargo (cu ft)" value="{{.CargoCubicFeet}}">
+    <input type="number" step="0.01" name="min_price" placeholder="Min Price" value="{{.MinPrice}}">
+    <input type="number" step="0.01" name="max_price" placeholder="Max Price" value="{{.MaxPrice}}">
   </div>
   <input type="url" name="image_url" placeholder="Image URL" value="{{.ImageURL}}">
   {{if .ImageURL}}<img src="{{.ImageURL}}" alt="{{.Label}}" class="thumb-preview">{{end}}

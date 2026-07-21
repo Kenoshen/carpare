@@ -40,17 +40,15 @@ type ModelYear struct {
 	CarModelID string `json:"car_model_id"`
 	Year       int    `json:"year"`
 
-	MPGCity           float64   `json:"mpg_city,omitempty"`
-	MPGHighway        float64   `json:"mpg_highway,omitempty"`
-	SafetyRating      float64   `json:"safety_rating,omitempty"`      // e.g. NHTSA overall stars, 0-5
-	ReliabilityRating float64   `json:"reliability_rating,omitempty"` // e.g. JD Power/RepairPal score
-	Horsepower        int       `json:"horsepower,omitempty"`
-	DriveType         DriveType `json:"drive_type,omitempty"`
-	FuelType          FuelType  `json:"fuel_type,omitempty"`
-	SeatingCapacity   int       `json:"seating_capacity,omitempty"`
-	CargoCubicFeet    float64   `json:"cargo_cubic_feet,omitempty"`
-	ImageURL          string    `json:"image_url,omitempty"`
-	Notes             string    `json:"notes,omitempty"`
+	AverageMPG      float64   `json:"average_mpg,omitempty"`
+	Rating          int       `json:"rating,omitempty"` // 1-5 stars
+	MinPrice        float64   `json:"min_price,omitempty"`
+	MaxPrice        float64   `json:"max_price,omitempty"`
+	DriveType       DriveType `json:"drive_type,omitempty"`
+	FuelType        FuelType  `json:"fuel_type,omitempty"`
+	SeatingCapacity int       `json:"seating_capacity,omitempty"`
+	ImageURL        string    `json:"image_url,omitempty"`
+	Notes           string    `json:"notes,omitempty"`
 }
 
 // Condition describes a listing's sale condition.
